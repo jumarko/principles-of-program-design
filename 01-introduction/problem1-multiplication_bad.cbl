@@ -1,0 +1,26 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. MULTIPLICATION-BAjD.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 LINE-NO PIC 99.
+       77 COL-NO PIC 99.
+       01 PRINT-LINE.
+           02 NUM OCCURS 10 PIC ZZZ9.
+
+       PROCEDURE DIVISION.
+       PSTART.
+           MOVE SPACES TO PRINT-LINE.
+           MOVE 1 TO LINE-NO.
+           MOVE 1 TO NUM (1).
+           PERFORM PLINE UNTIL LINE-NO = 10.
+           DISPLAY PRINT-LINE.
+           STOP RUN.
+       PLINE.
+           ADD 1 TO LINE-NO.
+           MOVE 0 TO COL-NO.
+           DISPLAY PRINT-LINE.
+           PERFORM PNUM UNTIL LINE-NO = COL-NO.
+       PNUM.
+           ADD 1 TO COL-NO.
+           MULTIPLY LINE-NO BY COL-NO GIVING NUM(COl-NO).
