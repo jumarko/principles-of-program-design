@@ -1,8 +1,8 @@
-      *> Attempt to modify the good version of the program
+      *> Attempt to modify the bad version of the program
       *> to print the upper-right triangular half of the
       *> multiplication table.
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. MULTIPLICATION-GOOD-UPPER-RIGHT.
+       PROGRAM-ID. MULTIPLICATION-BAD-UPPER-RIGHT.
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
@@ -13,13 +13,17 @@
 
        PROCEDURE DIVISION.
        PSTART.
-           PERFORM PLINE VARYING LINE-NO
-                   FROM 1 BY 1 UNTIL LINE-NO > 10
+           MOVE SPACES TO PRINT-LINE.
+           MOVE 1 TO LINE-NO.
+           MOVE 1 TO NUM (1).
+           PERFORM PLINE UNTIL LINE-NO = 10.
+           DISPLAY PRINT-LINE.
            STOP RUN.
        PLINE.
-           MOVE SPACES TO PRINT-LINE.
-           PERFORM PNUM VARYING COL-NO
-                   FROM LINE-NO BY 1 UNTIL COL-NO > 10.
+           ADD 1 TO LINE-NO.
+           MOVE 0 TO COL-NO.
            DISPLAY PRINT-LINE.
+           PERFORM PNUM UNTIL LINE-NO = COL-NO.
        PNUM.
+           ADD 1 TO COL-NO.
            MULTIPLY LINE-NO BY COL-NO GIVING NUM(COl-NO).
