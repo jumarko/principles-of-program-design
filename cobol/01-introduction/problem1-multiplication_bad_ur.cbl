@@ -20,10 +20,10 @@
            DISPLAY PRINT-LINE.
            STOP RUN.
        PLINE.
-           ADD 1 TO LINE-NO.
-           MOVE 0 TO COL-NO.
+           MOVE    LINE-NO TO COL-NO.
+           PERFORM PNUM UNTIL COL-NO > 10.
            DISPLAY PRINT-LINE.
-           PERFORM PNUM UNTIL LINE-NO = COL-NO.
+           ADD 1 TO LINE-NO.
        PNUM.
            ADD 1 TO COL-NO.
            MULTIPLY LINE-NO BY COL-NO GIVING NUM(COl-NO).

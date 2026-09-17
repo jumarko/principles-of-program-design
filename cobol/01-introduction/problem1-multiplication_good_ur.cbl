@@ -19,6 +19,8 @@
        PLINE.
            MOVE SPACES TO PRINT-LINE.
            PERFORM PNUM VARYING COL-NO
+      *            The only thing that I had to change
+      *            is this condition
                    FROM LINE-NO BY 1 UNTIL COL-NO > 10.
            DISPLAY PRINT-LINE.
        PNUM.
