@@ -1,3 +1,5 @@
+      *> Modify the original program to print the lower-left
+      *> part of the table upside down.
        IDENTIFICATION DIVISION.
        PROGRAM-ID. MULTIPLICATION-BAjD.
 
@@ -10,17 +12,14 @@
 
        PROCEDURE DIVISION.
        PSTART.
-           MOVE SPACES TO PRINT-LINE.
-           MOVE 1 TO LINE-NO.
-           MOVE 1 TO NUM (1).
-           PERFORM PLINE UNTIL LINE-NO = 10.
-           DISPLAY PRINT-LINE.
+           PERFORM PLINE VARYING LINE-NO
+      * This is the only thing that had to be changed!
+                   FROM 10 BY -1 UNTIL LINE-NO = 0
            STOP RUN.
        PLINE.
-           ADD 1 TO LINE-NO.
-           MOVE 0 TO COL-NO.
+           MOVE SPACES TO PRINT-LINE.
+           PERFORM PNUM VARYING COL-NO
+                   FROM 1 BY 1 UNTIL COL-NO > LINE-NO
            DISPLAY PRINT-LINE.
-           PERFORM PNUM UNTIL LINE-NO = COL-NO.
        PNUM.
-           ADD 1 TO COL-NO.
            MULTIPLY LINE-NO BY COL-NO GIVING NUM(COl-NO).
